@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#3157d5">
+<meta name="description" content="AI Study Room - Free learning for Classes 1 to 12">
+<link rel="manifest" href="manifest.json">
+<title>AI Study Room</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f8ff;color:#172033}
+.nav{padding:15px 7%;display:flex;justify-content:space-between;align-items:center;background:white;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px #dfe5f2}
+.logo{font-size:21px;font-weight:800;color:#3157d5}
+.btn{border:0;border-radius:10px;padding:12px 18px;background:#3157d5;color:white;font-weight:700;cursor:pointer}
+.btn.alt{background:#edf1ff;color:#3157d5}
+.hero{padding:75px 7%;text-align:center;background:linear-gradient(135deg,#eef3ff,#fff)}
+.hero h1{font-size:45px;margin:10px}
+.hero p{font-size:18px;color:#59657a}
+.grid,.courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.grid{padding:35px 7%}
+.card,.course,.box{background:white;padding:20px;border-radius:16px;box-shadow:0 5px 20px #dfe5f2}
+.course{box-shadow:none;border:1px solid #e1e6f2}
+.section{padding:30px 7%}
+select,input{padding:12px;border:1px solid #ccd4e5;border-radius:10px;width:100%;max-width:450px}
+.lesson,.test,.ai{display:none;margin:25px 7%;background:white;padding:25px;border-radius:16px}
+.pill{display:inline-block;background:#edf1ff;padding:7px 11px;border-radius:20px;margin:4px}
+.progress{height:9px;background:#e5e9f2;border-radius:10px;overflow:hidden}
+.progress span{display:block;height:100%;width:0;background:#3157d5}
+.question{padding:15px;margin:12px 0;border:1px solid #e1e6f2;border-radius:12px}
+.notice{margin:20px 7%;padding:15px;background:#fff7df;border-radius:12px;color:#684d00}
+.founder{margin:20px 7%;padding:22px;background:white;border-radius:16px;text-align:center;box-shadow:0 5px 20px #dfe5f2}
+.footer{text-align:center;padding:40px;color:#68738a}
+.install{display:none;margin:15px 7%;padding:15px;background:#eaf0ff;border-radius:12px}
+</style>
+</head>
+
+<body oncontextmenu="return false">
+
+<header class="nav">
+<div class="logo">📚 AI Study Room</div>
+<button class="btn" onclick="go('learn')">Start Learning</button>
+</header>
+
+<section class="hero">
+<h1>Learn Smarter. Understand Better.</h1>
+<p>Structured learning for Classes 1–12 with lessons, notes, practice and tests.</p>
+<button class="btn" onclick="go('learn')">Start Free</button>
+</section>
+
+<div class="install" id="installBox">
+📱 Install AI Study Room on your device
+<button class="btn" onclick="installApp()">Install App</button>
+</div>
+
+<section class="founder">
+<h2>🚀 AI Study Room</h2>
+<p><b>Founder • Developer • CEO: Sai Subham Jena</b></p>
+<p>Free learning platform for students.</p>
+</section>
+
+<section class="grid">
+
+<div class="card">
+<h2>🤖</h2>
+<h3>AI Teacher</h3>
+<p>Learn concepts step-by-step and ask questions.</p>
+</div>
+
+<div class="card">
+<h2>📝</h2>
+<h3>Smart Notes</h3>
+<p>Important concepts, formulas and revision points.</p>
+</div>
+
+<div class="card">
+<h2>🎯</h2>
+<h3>Practice</h3>
+<p>Basic → Moderate → Advanced questions.</p>
+</div>
+
+<div class="card">
+<h2>🧪</h2>
+<h3>Chapter Tests</h3>
+<p>Test your knowledge and check your score.</p>
+</div>
+
+</section>
+
+<section class="section">
+<h2>📚 Classes 1–12</h2>
+
+<div class="courses">
+<div class="course">Class 1–5<br><b>Foundation Learning</b></div>
+<div class="course">Class 6–8<br><b>Middle School</b></div>
+<div class="course">Class 9–10<br><b>Board Preparation</b></div>
+<div class="course">Class 11–12<br><b>Senior Secondary</b></div>
+</div>
+</section>
+
+<section class="section">
+<h2>🧭 Complete Chapter System</h2>
+
+<div class="courses">
+<div class="course">1️⃣ Basics</div>
+<div class="course">2️⃣ Topic Lessons</div>
+<div class="course">3️⃣ Examples</div>
+<div class="course">4️⃣ Practice</div>
+<div class="course">5️⃣ Notes</div>
+<div class="course">6️⃣ Chapter Test</div>
+<div class="course">7️⃣ Revision</div>
+<div class="course">8️⃣ Completion ✅</div>
+</div>
+</section>
+
+<div class="notice">
+🔒 Content protection is enabled to discourage copying and downloads.
+Browser-based protection cannot guarantee prevention of every screenshot or recording method.
+</div>
+
+<section class="section" id="learn">
+
+<h2>🎓 Start Learning</h2>
+
+<p>Select your class and subject.</p>
+
+<select id="classSelect">
+<option>Class 1</option>
+<option>Class 2</option>
+<option>Class 3</option>
+<option>Class 4</option>
+<option>Class 5</option>
+<option>Class 6</option>
+<option>Class 7</option>
+<option>Class 8</option>
+<option>Class 9</option>
+<option>Class 10</option>
+<option>Class 11</option>
+<option>Class 12</option>
+</select>
+
+<br><br>
+
+<select id="subjectSelect">
+<option>Mathematics</option>
+<option>Science</option>
+<option>English</option>
+<option>Social Science</option>
+</select>
+
+<br><br>
+
+<button class="btn" onclick="openChapter()">Open Chapter</button>
+
+</section>
+
+<section class="lesson" id="lesson">
+
+<span class="pill">FREE</span>
+<span class="pill">Mathematics</span>
+
+<h2>📘 Matrices</h2>
+
+<p>
+<b>Chapter Path:</b>
+Basics → Types → Operations → Transpose → Determinants → Inverse → Applications → Test
+</p>
+
+<h3>Topic 1 — What is a Matrix?</h3>
+
+<p>
+A matrix is a rectangular arrangement of numbers, symbols or expressions in rows and columns.
+</p>
+
+<h3>Worked Example</h3>
+
+<p>
+If A = [[1,2],[3,4]], then A has 2 rows and 2 columns.
+Therefore its order is 2 × 2.
+</p>
+
+<h3>📝 Quick Notes</h3>
+
+<ul>
+<li>Order = rows × columns.</li>
+<li>Horizontal arrangement = row.</li>
+<li>Vertical arrangement = column.</li>
+<li>Always check dimensions before operations.</li>
+</ul>
+
+<h3>📊 Chapter Progress</h3>
+
+<div class="progress">
+<span id="bar"></span>
+</div>
+
+<p>Topic 1 of 8</p>
+
+<button class="btn" onclick="showTest()">Practice Test</button>
+
+<button class="btn alt" onclick="showAI()">Ask AI Teacher</button>
+
+</section>
+
+<section class="test" id="test">
+
+<h2>🧪 Chapter Test</h2>
+
+<div class="question">
+<b>1. A matrix has 3 rows and 2 columns. Its order is:</b>
+<br><br>
+<label><input type="radio" name="q1" value="wrong"> 2 × 3</label>
+<br>
+<label><input type="radio" name="q1" value="correct"> 3 × 2</label>
+</div>
+
+<div class="question">
+<b>2. Equal rows and columns form a:</b>
+<br><br>
+<label><input type="radio" name="q2" value="correct"> Square matrix</label>
+<br>
+<label><input type="radio" name="q2" value="wrong"> Row matrix</label>
+</div>
+
+<button class="btn" onclick="submitTest()">Submit Test</button>
+
+<h3 id="result"></h3>
+
+</section>
+
+<section class="ai" id="ai">
+
+<h2>🤖 AI Teacher</h2>
+
+<div class="box" id="answer">
+Ask me something about Matrices.
+</div>
+
+<br>
+
+<input id="question" placeholder="Example: What is matrix order?">
+
+<br><br>
+
+<button class="btn" onclick="askTeacher()">Ask Teacher</button>
+
+</section>
+
+<section class="section">
+
+<h2>📈 Learning Journey</h2>
+
+<div class="courses">
+<div class="course">📖 Learn</div>
+<div class="course">🎯 Practice</div>
+<div class="course">🧪 Test</div>
+<div class="course">📊 Check Score</div>
+<div class="course">🔁 Revise</div>
+<div class="course">✅ Complete</div>
+</div>
+
+</section>
+
+<footer class="footer">
+
+<p><b>AI Study Room</b></p>
+<p>Free Learning Platform</p>
+<p>Founder • Developer • CEO: Sai Subham Jena</p>
+
+</footer>
+
+<script>
+
+function go(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+function openChapter(){
+
+document.getElementById("lesson").style.display="block";
+
+document.getElementById("lesson").scrollIntoView({
+behavior:"smooth"
+});
+
+setTimeout(function(){
+document.getElementById("bar").style.width="35%";
+},300);
+
+}
+
+function showTest(){
+
+document.getElementById("test").style.display="block";
+
+document.getElementById("test").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+function showAI(){
+
+document.getElementById("ai").style.display="block";
+
+document.getElementById("ai").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+function submitTest(){
+
+let score=0;
+
+if(document.querySelector('input[name="q1"]:checked')?.value==="correct"){
+score++;
+}
+
+if(document.querySelector('input[name="q2"]:checked')?.value==="correct"){
+score++;
+}
+
+document.getElementById("result").innerText=
+"Your Score: "+score+"/2 "+(score===2?"🎉 Excellent!":"📚 Revise and try again.");
+
+}
+
+function askTeacher(){
+
+let q=document.getElementById("question").value.toLowerCase();
+
+let answer="A matrix is a rectangular arrangement of elements in rows and columns.";
+
+if(q.includes("order")){
+answer="The order of a matrix is written as rows × columns.";
+}
+
+else if(q.includes("square")){
+answer="A square matrix has the same number of rows and columns.";
+}
+
+else if(q.includes("row")){
+answer="A row is a horizontal arrangement of elements.";
+}
+
+else if(q.includes("column")){
+answer="A column is a vertical arrangement of elements.";
+}
+
+document.getElementById("answer").innerText=answer;
+
+}
+
+/* PWA */
+
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt",function(e){
+
+e.preventDefault();
+
+deferredPrompt=e;
+
+document.getElementById("installBox").style.display="block";
+
+});
+
+function installApp(){
+
+if(deferredPrompt){
+
+deferredPrompt.prompt();
+
+deferredPrompt=null;
+
+}
+
+}
+
+/* Register Service Worker */
+
+if("serviceWorker" in navigator){
+
+window.addEventListener("load",function(){
+
+navigator.serviceWorker.register("sw.js");
+
+});
+
+}
+
+/* Basic copy protection */
+
+document.addEventListener("copy",e=>e.preventDefault());
+document.addEventListener("cut",e=>e.preventDefault());
+document.addEventListener("selectstart",e=>e.preventDefault());
+
+document.addEventListener("keydown",function(e){
+
+if((e.ctrlKey||e.metaKey)&&["s","p","u"].includes(e.key.toLowerCase())){
+e.preventDefault();
+}
+
+});
+
+</script>
+
+</body>
+</html>
