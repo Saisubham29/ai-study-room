@@ -1,0 +1,11 @@
+{
+  "name": "AI Study Room",
+  "short_name": "AI Study",
+  "description": "Free learning platform for Classes 1 to 12",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f8ff",
+  "theme_color": "#3157d5",
+  "orientation": "portrait",
+  "icons": []
+}
